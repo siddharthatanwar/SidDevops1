@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siddharth Singh Tanwar | Scrum Master</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+    @font-face {
+      font-family: 'MinecraftSeven';
+      src: url('https://fonts.cdnfonts.com/s/70709/MinecraftSeven.woff') format('woff');
+    }
+    body {
+      scroll-behavior: smooth;
+    }
+    #fixedText {
+      color: white;
+    }
+    #dynamicText {
+      color: #39ff14; /* Neon Green */
+      font-weight: bold;
+    }
+  </style>
+
+<!-- Rainbow color for background style-->
+  <style>
+  @keyframes rainbowBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animate-gradient {
+    background: linear-gradient(270deg, rgba(255, 0, 0, 0.537), orange, yellow, green, blue, indigo, violet);
+    background-size: 1400% 1400%;
+    animation: rainbowBackground 25s ease infinite;
+  }
+</style>
+
+<!-- Animation for Scrum event style-->
+<style>
+  .step-card {
+    background: #1f2937;
+      padding: 20px 40px;
+      border-radius: 9999px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.3s ease-in-out;
+      text-align: center;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 140px;
+  }
+  .step-card:hover {
+    background-color: #374151;
+  }
+  .step-card.active {
+    border-color: #10b981; /* Tailwind emerald-500 */
+    background-color: #065f46;
+    color: white;
+    font-weight: bold;
+  }
+  .step-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #10b981;
+  }
+  .step-title {
+    margin-top: 8px;
+    font-size: 1.1rem;
+  }
+</style>
+
+</head>
+<body class="text-white font-sans animate-gradient">
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 w-full bg-gray-950 shadow-md z-50">
+    <nav class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+      <h1 class="text-2xl font-bold">Sidharth Tanwar</h1>
+      <ul class="flex gap-6 text-sm">
+        <li><a href="What We Do.html" class="hover:text-blue-400">What We Do</a></li>
+        <li><a href="Experience.html" class="hover:text-blue-400">What I was</a></li>
+        <li><a href="Project.html" class="hover:text-blue-400">What we Can Work Upon</a></li>
+        <li><a href="We Are Not Far.html" class="hover:text-blue-400">We Are Not Far</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+    <section class="h-screen flex items-center justify-center text-center px-4" id="hero">
+    <div class="mt-16">
+      <h1 class="text-5xl font-bold mb-4">Hi, I'm Siddharth Tanwar</h1>
+      <p class="text-xl" id="typing">
+        <span id="fixedText">You CAN LEARN EASILY </span>
+        <span id="dynamicText"></span></p>
+    </div>
+  </section>
+
+  <!-- the below script is animation for Scrum Events -->
+
+<script>
+  const steps = [
+    {
+      title: "Sprint Planning",
+      desc: "Team defines Sprint Goal and plans work to be done. Sets direction for the Sprint.",
+    },
+    {
+      title: "Daily Scrum",
+      desc: "Daily 15-min standup to inspect progress toward Sprint Goal and adjust plan.",
+    },
+    {
+      title: "Sprint Review",
+      desc: "Stakeholders and team inspect the increment and adapt Product Backlog.",
+    },
+    {
+      title: "Retrospective",
+      desc: "Team reflects on how work went and plans improvements for next Sprint.",
+    }
+  ];
+
+let currentStep = -1;
+
+function activateStep(stepIndex) {
+  if (stepIndex === currentStep + 1) {  // Validate sequential click
+    currentStep = stepIndex;
+
+    const cards = document.querySelectorAll(".step-card");
+    cards.forEach((card, i) => {
+      card.classList.remove("active", "disabled");
+      if (i <= currentStep) {
+        card.classList.add("active");
+      } else {
+        card.classList.add("disabled");
+      }
+    });
+
+    const description = document.getElementById("step-description");
+    description.innerText = steps[stepIndex].desc;
+  } else {
+    alert(`Please follow the sequence! Click step ${currentStep + 2} next.`);
+  }
+}
+
+function resetSteps() {
+  currentStep = -1;
+  const cards = document.querySelectorAll(".step-card");
+  cards.forEach((card, i) => {
+    card.classList.remove("active");
+    card.classList.remove("disabled");
+    if (i !== 0) {
+      card.classList.add("disabled");
+    }
+  });
+  document.getElementById("step-description").innerText = "";
+}
+
+// Initialize the steps on page load
+window.onload = () => {
+  resetSteps();
+};
+
+</script>
+
+<!-- Below html infor for scrum event on index page-->
+<section class="bg-gray-900 text-white py-12 px-4">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-6">Understand Scrum Events</h2>
+    <p class="mb-8 text-gray-300">Click each step in order to understand the Scrum cycle.</p>
+    
+    <div id="scrum-steps" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="step-card" onclick="activateStep(0)">
+        <div class="step-number">1</div>
+        <div class="step-title">Sprint Planning</div>
+      </div>
+      <div class="step-card" onclick="activateStep(1)">
+        <div class="step-number">2</div>
+        <div class="step-title">Daily Scrum</div>
+      </div>
+      <div class="step-card" onclick="activateStep(2)">
+        <div class="step-number">3</div>
+        <div class="step-title">Sprint Review</div>
+      </div>
+      <div class="step-card" onclick="activateStep(3)">
+        <div class="step-number">4</div>
+        <div class="step-title">Retrospective</div>
+      </div>
+    </div>
+
+    <div id="step-description" class="mt-8 text-lg text-green-400 min-h-[100px]"></div>
+
+    <button id="resetBtn" onclick="resetSteps()" 
+      class="mt-8 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded">Reset</button>
+  
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-950 py-6 text-center text-sm text-gray-500">
+    <p>&copy; 2025 Sidharth Tanwar. All rights reserved.</p>
+  </footer>
+
+   <script>
+    const words = [" --- Scrum Practices", " --- SAFe (Scaled Agile Framework)", " --- Kanban Methodology"];
+    let i = 0;
+    let j = 0;
+    let currentWord = "";
+    const speed = 100;
+    const delayBetweenWords = 2000;
+
+    function typeWriterLoop() {
+      const dynamicText = document.getElementById("dynamicText");
+      const word = words[i];
+
+        // Set styling here directly in JS
+      dynamicText.style.fontSize = "20px";
+      dynamicText.style.fontFamily = "'MinecraftSeven', 'Source Code Pro', monospace";
+
+      if (j < word.length) {
+        currentWord += word.charAt(j);
+        dynamicText.innerHTML = currentWord;
+        j++;
+        setTimeout(typeWriterLoop, speed);
+      } else {
+        setTimeout(() => {
+          currentWord = "";
+          dynamicText.innerHTML = "";
+          j = 0;
+          i = (i + 1) % words.length;
+          setTimeout(typeWriterLoop, speed);
+        }, delayBetweenWords);
+      }
+    }
+
+    window.onload = typeWriterLoop;
+  </script>
+
+</body>
+</html>

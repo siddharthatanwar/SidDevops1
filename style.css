@@ -1,0 +1,369 @@
+@media (min-width: 768px) 
+{
+    .navbar-collapse 
+    {
+      justify-content: center;
+    }
+    .navbar-nav 
+    {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+  }
+
+  .carousel-item {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+
+  .carousel-caption {
+    z-index: 2;
+    bottom: 50%;
+    transform: translateY(50%);
+  }
+
+  .carousel-caption h1,
+  .carousel-caption p {
+    color: #fff;
+  }
+
+  .carousel-caption .btn {
+    margin-top: 20px;
+  }
+
+
+/*-- About Us CSS --*/ 
+
+section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  /* Heading style */
+  small.text-uppercase {
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #888;
+  }
+
+  /* Tab buttons */
+  .nav-tabs .nav-link {
+    font-weight: 500;
+    color: #333;
+    border: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+
+  .nav-tabs .nav-link.active {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    background-color: transparent;
+  }
+
+  .nav-tabs .nav-link:hover {
+    color: #0056b3;
+  }
+
+  /* Tab content spacing */
+  .tab-content h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+
+  .tab-content p {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  /* Button */
+  .tab-content .btn {
+    padding: 10px 20px;
+    font-weight: 500;
+    border-radius: 25px;
+  }
+
+  /* Image styles */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .rounded.shadow {
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Responsive improvements */
+  @media (max-width: 767.98px) {
+    .tab-content h3 {
+      font-size: 1.5rem;
+    }
+    .tab-content p {
+      font-size: 0.95rem;
+    }
+    .tab-content .btn {
+      font-size: 0.9rem;
+    }
+  }
+
+  /*-- Service Section CSS -- */
+
+    /* Section spacing and typography */
+    .services-section {
+        padding: 60px 0;
+        background-color: #f9f9f9;
+      }
+    
+      .services-section h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+    
+      .services-section p {
+        max-width: 700px;
+        margin: 0 auto 40px;
+        color: #666;
+        font-size: 1rem;
+      }
+    
+      /* Card styling */
+      .services-section .card {
+        transition: all 0.3s ease;
+        border-radius: 12px;
+      }
+    
+      .services-section .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      }
+    
+      .services-section .card-body {
+        padding: 30px 20px;
+      }
+    
+      /* Icon styling */
+      .services-section i {
+        font-size: 40px;
+        margin-bottom: 15px;
+        display: inline-block;
+      }
+    
+      /* Title and paragraph */
+      .services-section .card-title {
+        font-weight: 600;
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+      }
+    
+      .services-section .card-text {
+        color: #555;
+        font-size: 0.95rem;
+        min-height: 48px; /* ensure consistent height */
+      }
+    
+      /* Button styling */
+      .services-section .btn {
+        font-size: 0.9rem;
+        padding: 8px 18px;
+        border-radius: 25px;
+        transition: 0.3s ease;
+      }
+    
+      .services-section .btn:hover {
+        background-color: #0d6efd;
+        color: #fff;
+      }
+    
+      /* Responsive spacing */
+      @media (max-width: 767.98px) {
+        .services-section h2 {
+          font-size: 2rem;
+        }
+    
+        .services-section .card-body {
+          padding: 20px 15px;
+        }
+      }
+
+      /* -- Over on Service Card CSS -- */
+      /* Icon color transition */
+.service-icon {
+    transition: color 0.3s ease;
+  }
+  
+  /* Hover effect: elevate and change icon color */
+  .card:hover .service-icon {
+    color: #0d6efd !important; /* Or any other color you want */
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  /*-- Our Projects -- */
+
+   /* Main styling */
+   .projects-section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .project-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    height: 300px;
+  }
+
+  .project-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+  }
+
+  .project-box .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .project-box:hover .overlay {
+    opacity: 1;
+  }
+
+  .project-box:hover {
+    transform: scale(1.03);
+  }
+
+  .project-box.up {
+    margin-top: -15px;
+  }
+
+  .project-box.down {
+    margin-top: 15px;
+  }
+
+  .nav-pills .nav-link {
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: 500;
+  }
+
+  .nav-pills .nav-link.active {
+    background-color: #0d6efd;
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    .project-box {
+      height: 200px;
+    }
+
+    .project-box.up,
+    .project-box.down {
+      margin-top: 0;
+    }
+  }
+
+
+  .contact-section {
+    background: #f9f9f9;
+  }
+
+  .contact-section h2 {
+    font-size: 2.5rem;
+  }
+
+  .contact-section .form-control {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+  }
+
+  .contact-section .btn-primary {
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: 500;
+  }
+
+  .map-container {
+    height: 100%;
+    min-height: 400px;
+  }
+
+  @media (max-width: 768px) {
+    .map-container {
+      min-height: 300px;
+    }
+  }
+
+  .footer-section {
+    background-color: #111;
+    color: #ccc;
+  }
+
+  .footer-section h4,
+  .footer-section h5 {
+    color: #fff;
+  }
+
+  .footer-link {
+    color: #bbb;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+  }
+
+  .footer-link:hover {
+    color: #0d6efd;
+  }
+
+  .footer-section .form-control {
+    border-radius: 0;
+    font-size: 0.875rem;
+  }
+
+  .footer-section .btn {
+    border-radius: 0;
+  }
+
+  .footer-section i {
+    transition: color 0.3s;
+  }
+
+  .footer-section a.text-light:hover i {
+    color: #0d6efd;
+  }
+
+  @media (max-width: 768px) {
+    .footer-section .text-center {
+      font-size: 0.85rem;
+    }
+  }

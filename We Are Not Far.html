@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siddharth Tanwar | Scrum Master</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+    @font-face {
+      font-family: 'MinecraftSeven';
+      src: url('https://fonts.cdnfonts.com/s/70709/MinecraftSeven.woff') format('woff');
+    }
+    body {
+      scroll-behavior: smooth;
+    }
+    #fixedText {
+      color: white;
+    }
+    #dynamicText {
+      color: #1418ff; /* Blue */
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+  <!-- Navbar -->
+ <header class="bg-gray-950 p-4 shadow-md">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      
+      <nav class="space-x-4 text-sm">
+               <a href="index.html" class="hover:text-blue-400">Home</a>
+        
+      </nav>
+    </div>
+  </header>
+
+   <!-- Hero Section -->
+    <section class="h-screen flex items-center justify-center text-center px-4" id="hero">
+    <div class="mt-16">
+      <h1 class="text-5xl font-bold mb-4">Thanks for reaching here, We Are Not Far</h1>
+      <p class="text-xl" id="typing">
+        <span id="fixedText">We are waiting </span>
+        <span id="dynamicText"></span></p>
+    </div>
+  </section>
+ 
+  <!-- Footer -->
+  <footer class="bg-gray-950 py-6 text-center text-sm text-gray-500">
+    <p>&copy; 2025 Sidharth Tanwar. All rights reserved.</p>
+  </footer>
+
+  <!-- Typing Effect Script -->
+  <script>
+    const words = [" for your enqueries"];
+    let i = 0;
+    let j = 0;
+    let currentWord = "";
+    const speed = 100;
+    const delayBetweenWords = 2000;
+
+    function typeWriterLoop() {
+      const dynamicText = document.getElementById("dynamicText");
+      const word = words[i];
+
+      // Set styling here directly in JS
+      dynamicText.style.fontSize = "20px";
+      dynamicText.style.fontFamily = "'MinecraftSeven', 'Source Code Pro', monospace";
+
+      if (j < word.length) {
+        currentWord += word.charAt(j);
+        dynamicText.innerHTML = currentWord;
+        j++;
+        setTimeout(typeWriterLoop, speed);
+      } else {
+        setTimeout(() => {
+          currentWord = "";
+          dynamicText.innerHTML = "";
+          j = 0;
+          i = (i + 1) % words.length;
+          setTimeout(typeWriterLoop, speed);
+        }, delayBetweenWords);
+      }
+    }
+
+    window.onload = typeWriterLoop;
+  </script>
+
+</body>
+</html>

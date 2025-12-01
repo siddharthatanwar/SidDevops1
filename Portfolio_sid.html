@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ULF.online — Replica (starter)</title>
+  <meta name="description" content="Replica starter for ulf.online style portfolio" />
+
+  <!-- Tailwind CDN (for quick prototype) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <style>
+    /* Custom styles to emulate a bold, experimental portfolio look */
+    :root{
+      --bg:#050508;
+      --accent:#00ffd5;
+      --muted:#9aa0a6;
+    }
+    html,body{height:100%;}
+    body{background:linear-gradient(180deg,#030305 0%,#0b0b0f 100%);color:#e6eef6;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial}
+
+    /* big hero effect */
+    .hero{
+      min-height:72vh;
+      display:grid;place-items:center;
+      position:relative;overflow:hidden;
+    }
+    .glitch-title{font-weight:800;letter-spacing:-1px}
+
+    /* grid of cards */
+    .work-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04);backdrop-filter: blur(6px);}
+
+    /* animated gradient border */
+    .neon-edge{box-shadow:0 6px 30px rgba(0,255,213,0.06);border-radius:8px}
+
+    /* subtle floating blobs */
+    .blob{position:absolute;border-radius:50%;filter:blur(40px);opacity:.12;mix-blend-mode:screen}
+    .blob.b1{width:420px;height:420px;background:#00ffd5;left:-120px;top:-80px}
+    .blob.b2{width:300px;height:300px;background:#ff3dcb;right:-100px;bottom:-90px}
+
+    /* small screens tweak */
+    @media (max-width:640px){.glitch-title{font-size:28px}}
+
+  </style>
+</head>
+<body>
+  <!-- floating decorative blobs -->
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+
+  <!-- NAV -->
+  <header class="w-full z-50 fixed top-0 left-0">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="text-white font-bold">ULF<span class="text-accent">.</span>online</a>
+      <nav class="hidden md:flex gap-6 text-sm text-gray-300">
+        <a href="#work" class="hover:text-white">Work</a>
+        <a href="#about" class="hover:text-white">About</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
+      </nav>
+      <div class="md:hidden">
+        <button id="menuBtn" class="p-2 rounded border border-gray-700">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main class="hero px-6 pt-24">
+    <div class="max-w-6xl w-full mx-auto grid grid-cols-12 gap-6 items-center">
+
+      <div class="col-span-12 md:col-span-6">
+        <h1 class="text-5xl md:text-6xl glitch-title leading-tight">Ulf Schroeter — experiences. design. innovation.</h1>
+        <p class="mt-6 text-gray-300 max-w-xl">Multidisciplinary designer & visual storyteller based in Sydney. I craft interactive experiences, brand systems and immersive visuals.</p>
+        <div class="mt-8 flex gap-4">
+          <a href="#work" class="px-5 py-3 rounded neon-edge border border-transparent bg-gradient-to-r from-[#00ffd5] to-[#7a00ff] text-black font-semibold">View Work</a>
+          <a href="#contact" class="px-5 py-3 rounded border border-gray-700 text-gray-200">Contact</a>
+        </div>
+      </div>
+
+      <div class="col-span-12 md:col-span-6 flex justify-center">
+        <!-- sample artwork card to right -->
+        <div class="w-72 h-72 work-card neon-edge p-4 rounded-lg flex items-end" style="background-image:linear-gradient(135deg, rgba(255,255,255,0.02), transparent);">
+          <div class="text-sm text-gray-300">Featured project</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- WORK GRID -->
+  <section id="work" class="max-w-6xl mx-auto px-6 py-20">
+    <h2 class="text-3xl font-bold mb-8">Selected Work</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- repeat cards -->
+      <div class="p-4 work-card rounded-lg">
+        <div class="h-40 bg-gradient-to-br from-[#131418] to-[#0b0b0f] rounded-md"></div>
+        <h3 class="mt-4 font-semibold">Project Title</h3>
+        <p class="text-sm text-gray-400 mt-2">Short description of the project and role.</p>
+      </div>
+
+      <div class="p-4 work-card rounded-lg">
+        <div class="h-40 bg-gradient-to-br from-[#131418] to-[#0b0b0f] rounded-md"></div>
+        <h3 class="mt-4 font-semibold">Project Two</h3>
+        <p class="text-sm text-gray-400 mt-2">Short description of the project and role.</p>
+      </div>
+
+      <div class="p-4 work-card rounded-lg">
+        <div class="h-40 bg-gradient-to-br from-[#131418] to-[#0b0b0f] rounded-md"></div>
+        <h3 class="mt-4 font-semibold">Project Three</h3>
+        <p class="text-sm text-gray-400 mt-2">Short description of the project and role.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="max-w-6xl mx-auto px-6 py-20">
+    <div class="grid md:grid-cols-2 gap-6 items-center">
+      <div>
+        <h2 class="text-3xl font-bold">About Ulf</h2>
+        <p class="text-gray-300 mt-4">A quick bio: multidisciplinary designer working across interaction, film, and brand systems. I create meaningful experiences that move people.</p>
+      </div>
+      <div>
+        <div class="h-48 bg-gradient-to-br from-[#0b0b0f] to-[#0f1724] rounded p-4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="max-w-6xl mx-auto px-6 py-20">
+    <h2 class="text-3xl font-bold mb-6">Get in touch</h2>
+    <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <input class="p-3 bg-[#0b0b0f] rounded border border-gray-800" placeholder="Name">
+      <input class="p-3 bg-[#0b0b0f] rounded border border-gray-800" placeholder="Email">
+      <textarea class="p-3 bg-[#0b0b0f] rounded border border-gray-800 md:col-span-2" rows="6" placeholder="Message"></textarea>
+      <button class="md:col-span-2 px-6 py-3 rounded bg-gradient-to-r from-[#00ffd5] to-[#7a00ff] text-black font-semibold">Send</button>
+    </form>
+  </section>
+
+  <footer class="py-8 text-center text-sm text-gray-500">© 2025 Ulf Online — Replica</footer>
+
+  <script>
+    // simple menu toggle for mobile
+    document.getElementById('menuBtn').addEventListener('click', () => {
+      const nav = document.querySelector('header nav');
+      nav.classList.toggle('hidden');
+    });
+
+    // small entrance animation using GSAP
+    gsap.from('.glitch-title',{y:20,opacity:0,duration:1,ease:'power3.out'});
+    gsap.from('.work-card',{y:30,opacity:0,duration:1,stagger:0.12,delay:0.2});
+
+  </script>
+</body>
+</html>
