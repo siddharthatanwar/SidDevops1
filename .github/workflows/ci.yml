@@ -1,0 +1,38 @@
+name: CI Pipeline - Static Web App
+
+on:
+  push:
+    branches:
+      - main
+      - feature/*
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Validate HTML files
+      run: |
+        echo "Checking HTML files"
+        ls *.html
+
+    - name: Validate CSS files
+      run: |
+        echo "Checking CSS files"
+        ls css || echo "No CSS folder"
+
+    - name: Validate JS files
+      run: |
+        echo "Checking JS files"
+        ls js || echo "No JS folder"
+
+    - name: Start local web server
+      run: |
+        python3 -m http.server 8000 &
+        sleep 5
