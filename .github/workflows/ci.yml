@@ -36,3 +36,7 @@ jobs:
       run: |
         python3 -m http.server 8000 &
         sleep 5
+    - name: Simulated Deployment
+      run: |
+        echo "Deploying application..."
+        echo "Deployment successful"
